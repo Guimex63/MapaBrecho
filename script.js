@@ -1,25 +1,41 @@
+// Ao carregar a página, exibir dados salvos
+window.onload = () => {
+  const brechos = JSON.parse(localStorage.getItem("brechos")) || [];
+  brechos.forEach(exibirBrecho);
+};
+
+function exibirBrecho(brecho) {
+  const html = `
+    <div class="brecho">
+      <h3>${brecho.nome}</h3>
+      <p><strong>Endereço:</strong> ${brecho.endereco}, ${brecho.cidade}</p>
+      <p><strong>Horário:</strong> ${brecho.horario}</p>
+      <p><strong>Faixa de preço:</strong> ${brecho.preco}</p>
+      <p><strong>O que vende:</strong> ${brecho.itens}</p>
+      <p><strong>Política de doações:</strong> ${brecho.doacao}</p>
+    </div>
+  `;
+  document.getElementById("brecho-lista").innerHTML += html;
+}
+
 document.getElementById('form-brecho').addEventListener('submit', function(e) {
   e.preventDefault();
 
-  const nome = document.getElementById('nome').value;
-  const endereco = document.getElementById('endereco').value;
-  const cidade = document.getElementById('cidade').value;
-  const horario = document.getElementById('horario').value;
-  const preco = document.getElementById('preco').value;
-  const itens = document.getElementById('itens').value;
-  const doacao = document.getElementById('doacao').value;
+  const brecho = {
+    nome: document.getElementById('nome').value,
+    endereco: document.getElementById('endereco').value,
+    cidade: document.getElementById('cidade').value,
+    horario: document.getElementById('horario').value,
+    preco: document.getElementById('preco').value,
+    itens: document.getElementById('itens').value,
+    doacao: document.getElementById('doacao').value
+  };
 
-  const brechoHTML = `
-    <div class="brecho">
-      <h3>${nome}</h3>
-      <p><strong>Endereço:</strong> ${endereco}, ${cidade}</p>
-      <p><strong>Horário:</strong> ${horario}</p>
-      <p><strong>Faixa de preço:</strong> ${preco}</p>
-      <p><strong>O que vende:</strong> ${itens}</p>
-      <p><strong>Política de doações:</strong> ${doacao}</p>
-    </div>
-  `;
+  // salvar no localStorage
+  const brechos = JSON.parse(localStorage.getItem("brechos")) || [];
+  brechos.push(brecho);
+  localStorage.setItem("brechos", JSON.stringify(brechos));
 
-  document.getElementById('brecho-lista').innerHTML += brechoHTML;
+  exibirBrecho(brecho);
   this.reset();
 });
