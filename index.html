@@ -3,63 +3,77 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mapa de Brechós e Bazares</title>
+  <title>Mapa de Brechós Sustentáveis</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Mapa de Brechós</h1>
-    <p class="subtitulo">Cadastre brechós e ajude a promover a moda sustentável!</p>
+  <header>
+    <h1>Mapa de Brechós Sustentáveis</h1>
+    <p>Encontre, doe ou participe de brechós comunitários e apoie a moda consciente</p>
+  </header>
 
-    <form id="formulario">
-      <label for="nome">Nome do brechó ou bazar</label>
-      <input type="text" id="nome" name="nome" required />
+  <main>
+    <form id="brechoForm">
+      <label>Nome do brechó:</label>
+      <input type="text" name="nome" required />
 
-      <label for="endereco">Endereço (CEP, bairro, cidade)</label>
-      <input type="text" id="endereco" name="endereco" required />
+      <label>Endereço completo:</label>
+      <input type="text" name="endereco" required />
 
-      <label for="horario">Horário de funcionamento</label>
-      <div class="horarios">
-        <input type="text" placeholder="Segunda a Sexta" name="horarioSemana" />
-        <input type="text" placeholder="Sábado" name="horarioSabado" />
+      <label>CEP:</label>
+      <input type="text" name="cep" required />
+
+      <label>Bairro:</label>
+      <input type="text" name="bairro" required />
+
+      <label>Cidade:</label>
+      <input type="text" name="cidade" required />
+
+      <label>Horário de Funcionamento:</label>
+      <input type="text" name="horario" placeholder="Ex: Seg a Sex 9h às 18h / Sáb 9h às 14h" required />
+
+      <label>Faixa de preço (R$):</label>
+      <div class="preco-flex">
+        <input type="number" name="preco_min" placeholder="Mínimo" required />
+        <input type="number" name="preco_max" placeholder="Máximo" required />
       </div>
 
-      <label for="faixaPreco">Faixa de preço (R$)</label>
-      <div class="precos">
-        <input type="number" name="precoMin" placeholder="mínimo" />
-        <input type="number" name="precoMax" placeholder="máximo" />
-      </div>
-
-      <label>O que é vendido:</label>
+      <label>Itens vendidos:</label>
       <div class="checkbox-group">
-        <label><input type="checkbox" name="vendido" value="Roupas Femininas" /> Roupas Femininas</label>
-        <label><input type="checkbox" name="vendido" value="Roupas Masculinas" /> Roupas Masculinas</label>
-        <label><input type="checkbox" name="vendido" value="Móveis" /> Móveis</label>
-        <label><input type="checkbox" name="vendido" value="Utilidades para o Lar" /> Utilidades para o Lar</label>
-        <label><input type="checkbox" name="vendido" value="Acessórios" /> Acessórios</label>
+        <label><input type="checkbox" name="itens" value="Roupas Femininas" /> Roupas Femininas</label>
+        <label><input type="checkbox" name="itens" value="Roupas Masculinas" /> Roupas Masculinas</label>
+        <label><input type="checkbox" name="itens" value="Acessórios" /> Acessórios</label>
+        <label><input type="checkbox" name="itens" value="Móveis" /> Móveis</label>
+        <label><input type="checkbox" name="itens" value="Utilidades" /> Utilidades para o Lar</label>
       </div>
 
-      <label for="doacao">Como fazer doações?</label>
-      <textarea name="doacao" id="doacao" rows="3" placeholder="Explique se há remuneração, o tipo de item aceito, etc."></textarea>
+      <label>Como doar para o brechó?</label>
+      <textarea name="doacao_info" rows="3" placeholder="Descreva como a doação pode ser feita"></textarea>
 
-      <label>Recompensa por doações?</label>
-      <div class="radio-group">
-        <label><input type="radio" name="remuneracao" value="Sim" /> Sim</label>
-        <label><input type="radio" name="remuneracao" value="Não" /> Não</label>
-      </div>
+      <label>As doações são remuneradas?</label>
+      <select name="remunerada">
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+        <option value="parcial">Depende do item</option>
+      </select>
 
-      <label for="reposicao">Dias de possível reposição</label>
-      <input type="text" id="reposicao" name="reposicao" placeholder="Ex: Segunda e Quinta" />
+      <label>Trabalho voluntário é aceito?</label>
+      <select name="voluntario">
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+      </select>
 
-      <label>Aceita trabalho voluntário?</label>
-      <div class="radio-group">
-        <label><input type="radio" name="voluntario" value="Sim" /> Sim</label>
-        <label><input type="radio" name="voluntario" value="Não" /> Não</label>
-      </div>
+      <label>Dias de possível reposição de estoque:</label>
+      <input type="text" name="reposicao" placeholder="Ex: Segunda e Quinta-feira" />
 
       <button type="submit">Cadastrar</button>
     </form>
-  </div>
+
+    <section id="listaBrechos">
+      <h2>Brechós cadastrados:</h2>
+      <ul id="brechoList"></ul>
+    </section>
+  </main>
 
   <script src="script.js"></script>
 </body>
