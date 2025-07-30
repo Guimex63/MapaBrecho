@@ -1,76 +1,78 @@
 body {
-  font-family: Arial, sans-serif;
-  background: #f4f8fb;
+  font-family: 'Segoe UI', sans-serif;
   margin: 0;
   padding: 0;
+  background: #f2f2f2;
 }
 
-.container {
-  max-width: 600px;
-  margin: 40px auto;
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-h1 {
+header {
+  background-color: #4e947f;
+  color: white;
+  padding: 20px;
   text-align: center;
-  color: #2b6777;
 }
 
-.subtitulo {
-  text-align: center;
-  color: #555;
-  margin-bottom: 20px;
+main {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-label {
+form label {
   display: block;
-  margin: 12px 0 5px;
-  color: #333;
+  margin-top: 15px;
+  font-weight: bold;
 }
 
 input[type="text"],
 input[type="number"],
-textarea {
+textarea,
+select {
   width: 100%;
   padding: 8px;
-  border-radius: 6px;
+  margin-top: 5px;
+  border-radius: 4px;
   border: 1px solid #ccc;
-  box-sizing: border-box;
 }
 
-.horarios,
-.precos {
+.preco-flex {
   display: flex;
   gap: 10px;
 }
 
-.checkbox-group,
-.radio-group {
+.checkbox-group {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 10px;
   margin-top: 5px;
-}
-
-textarea {
-  resize: vertical;
 }
 
 button {
   margin-top: 20px;
+  padding: 10px;
   width: 100%;
-  padding: 12px;
-  background-color: #52ab98;
+  background-color: #4e947f;
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #39867c;
+  background-color: #407c6a;
+}
+
+#listaBrechos {
+  margin-top: 40px;
+}
+
+#brechoList li {
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #e6f1ee;
+  border-left: 5px solid #4e947f;
 }
