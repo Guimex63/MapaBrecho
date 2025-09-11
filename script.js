@@ -67,16 +67,18 @@ filterForm.addEventListener("submit", (e) => {
   const formData = new FormData(filterForm);
 
   const categoria = formData.get("categoria");
-  const cidade = formData.get("cidade").toLowerCase();
+  const bairro = formData.get("bairro").toLowerCase();
   const precoMax = formData.get("preco_max");
   const doacao = formData.get("remunerada");
+  const voluntario = formData.get("voluntario");
 
   const filtrados = brechos.filter((b) => {
     return (
       (categoria === "" || b.itens.includes(categoria)) &&
-      (cidade === "" || b.cidade.toLowerCase().includes(cidade)) &&
+      (bairro === "" || b.bairro.toLowerCase().includes(bairro)) &&
       (precoMax === "" || Number(b.preco_max) <= Number(precoMax)) &&
-      (doacao === "" || b.remunerada === doacao)
+      (doacao === "" || b.remunerada === doacao) &&
+      (voluntario === "" || b.voluntario === voluntario)
     );
   });
 
