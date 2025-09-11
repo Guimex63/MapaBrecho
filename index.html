@@ -10,70 +10,186 @@
   <header>
     <h1>Mapa de Brechós Sustentáveis</h1>
     <p>Encontre, doe ou participe de brechós comunitários e apoie a moda consciente</p>
+    <!-- MENU DE ABAS -->
+    <nav>
+      <button class="tab-button active" data-tab="home">🏠 Tela Inicial</button>
+      <button class="tab-button" data-tab="cadastro">➕ Cadastrar </button>
+      <button class="tab-button" data-tab="pesquisa">🔍 Pesquisar </button>
+    </nav>
   </header>
 
   <main>
-    <form id="brechoForm">
-      <label>Nome do brechó:</label>
-      <input type="text" name="nome" required />
+    <!-- TELA INICIAL -->
+    <section id="home" class="tab-content active">
+      <h2>Bem-vindo(a)!</h2>
+      <p>
+        Este projeto tem como objetivo promover a <b>economia circular</b>, o <b>reaproveitamento de roupas</b> 
+        e a <b>redução da cultura do descarte</b>. 
+      </p>
+      <p>
+        Aqui você pode cadastrar, pesquisar brechós comunitários e 
+        descobrir como apoiar iniciativas locais por meio de doações e trabalho voluntário.
+      </p>
+    </section>
 
-      <label>Endereço completo:</label>
-      <input type="text" name="endereco" required />
+    <!-- CADASTRAR BRECHÓ -->
+    <section id="cadastro" class="tab-content">
+      <h2>Cadastrar Brechó</h2>
+      <form id="brechoForm">
+        <label>Nome do brechó:</label>
+        <input type="text" name="nome" required />
 
-      <label>CEP:</label>
-      <input type="text" name="cep" required />
+        <h3>📍 Endereço</h3>
+        <div class="form-grid">
+          <div>
+            <label>Endereço:</label>
+            <input type="text" name="endereco" required />
+          </div>
+          <div>
+            <label>Número:</label>
+            <input type="text" name="numero" required />
+          </div>
+          <div>
+            <label>Complemento:</label>
+            <input type="text" name="complemento" />
+          </div>
+          <div>
+            <label>Bairro:</label>
+            <input type="text" name="bairro" required />
+          </div>
+          <div>
+            <label>CEP:</label>
+            <input type="text" name="cep" required />
+          </div>
+          <div>
+            <label>Cidade:</label>
+            <input type="text" name="cidade" required />
+          </div>
+        </div>
 
-      <label>Bairro:</label>
-      <input type="text" name="bairro" required />
+        <h3>📞 Contato</h3>
+        <div class="form-flex">
+          <div>
+            <label>Telefone:</label>
+            <input type="tel" name="telefone" placeholder="(xx) xxxxx-xxxx" required />
+          </div>
+          <div>
+            <label>Email:</label>
+            <input type="email" name="email" placeholder="exemplo@email.com" required />
+          </div>
+        </div>
 
-      <label>Cidade:</label>
-      <input type="text" name="cidade" required />
+        <h3>🕒 Horário de Funcionamento</h3>
+<div class="checkbox-group inline">
+  <label><input type="checkbox" name="dias" value="Segunda" /> Seg</label>
+  <label><input type="checkbox" name="dias" value="Terça" /> Ter</label>
+  <label><input type="checkbox" name="dias" value="Quarta" /> Qua</label>
+  <label><input type="checkbox" name="dias" value="Quinta" /> Qui</label>
+  <label><input type="checkbox" name="dias" value="Sexta" /> Sex</label>
+  <label><input type="checkbox" name="dias" value="Sábado" /> Sáb</label>
+  <label><input type="checkbox" name="dias" value="Domingo" /> Dom</label>
+</div>
 
-      <label>Horário de Funcionamento:</label>
-      <input type="text" name="horario" placeholder="Ex: Seg a Sex 9h às 18h / Sáb 9h às 14h" required />
+<div class="form-flex">
+  <div>
+    <label>Hora abertura:</label>
+    <input type="time" name="hora_abertura" required />
+  </div>
+  <div>
+    <label>Hora fechamento:</label>
+    <input type="time" name="hora_fechamento" required />
+  </div>
+</div>
 
-      <label>Faixa de preço (R$):</label>
-      <div class="preco-flex">
-        <input type="number" name="preco_min" placeholder="Mínimo" required />
-        <input type="number" name="preco_max" placeholder="Máximo" required />
-      </div>
+        <h3>💲 Faixa de Preço</h3>
+        <div class="form-flex">
+          <div>
+            <label>Mínimo:</label>
+            <div class="input-prefix">
+              <span>R$</span>
+              <input type="number" name="preco_min" required />
+            </div>
+          </div>
+          <div>
+            <label>Máximo:</label>
+            <div class="input-prefix">
+              <span>R$</span>
+              <input type="number" name="preco_max" required />
+            </div>
+          </div>
+        </div>
 
-      <label>Itens vendidos:</label>
-      <div class="checkbox-group">
-        <label><input type="checkbox" name="itens" value="Roupas Femininas" /> Roupas Femininas</label>
-        <label><input type="checkbox" name="itens" value="Roupas Masculinas" /> Roupas Masculinas</label>
-        <label><input type="checkbox" name="itens" value="Acessórios" /> Acessórios</label>
-        <label><input type="checkbox" name="itens" value="Móveis" /> Móveis</label>
-        <label><input type="checkbox" name="itens" value="Utilidades" /> Utilidades para o Lar</label>
-      </div>
+        <label>Itens vendidos:</label>
+<div class="checkbox-group inline">
+  <label><input type="checkbox" name="itens" value="Roupas Femininas" /> Roupas Femininas</label>
+  <label><input type="checkbox" name="itens" value="Roupas Masculinas" /> Roupas Masculinas</label>
+  <label><input type="checkbox" name="itens" value="Acessórios" /> Acessórios</label>
+  <label><input type="checkbox" name="itens" value="Móveis" /> Móveis</label>
+  <label><input type="checkbox" name="itens" value="Utilidades" /> Utilidades</label>
+  <label><input type="checkbox" name="itens" value="Eletrônicos" /> Eletrônicos</label>
+</div>
 
-      <label>Como doar para o brechó?</label>
-      <textarea name="doacao_info" rows="3" placeholder="Descreva como a doação pode ser feita"></textarea>
+        <label>Como doar para o brechó?</label>
+        <textarea name="doacao_info" rows="3" placeholder="Descreva como a doação pode ser feita"></textarea>
 
-      <label>As doações são remuneradas?</label>
-      <select name="remunerada">
-        <option value="sim">Sim</option>
-        <option value="nao">Não</option>
-        <option value="parcial">Depende do item</option>
-      </select>
+        <label>As doações são remuneradas?</label>
+        <select name="remunerada">
+          <option value="sim">Sim</option>
+          <option value="nao">Não</option>
+          <option value="parcial">Depende do item</option>
+        </select>
 
-      <label>Trabalho voluntário é aceito?</label>
-      <select name="voluntario">
-        <option value="sim">Sim</option>
-        <option value="nao">Não</option>
-      </select>
+        <label>Trabalho voluntário é aceito?</label>
+        <select name="voluntario">
+          <option value="sim">Sim</option>
+          <option value="nao">Não</option>
+        </select>
 
-      <label>Dias de possível reposição de estoque:</label>
-      <input type="text" name="reposicao" placeholder="Ex: Segunda e Quinta-feira" />
+        <button type="submit">Cadastrar</button>
+      </form>
+    </section>
 
-      <button type="submit">Cadastrar</button>
-    </form>
+    <!-- PESQUISA DE BRECHÓS -->
+    <section id="pesquisa" class="tab-content">
+      <h2>Pesquisar Brechós</h2>
+      <form id="filterForm">
+        <label>Categoria:</label>
+        <select name="categoria">
+          <option value="">Todas</option>
+          <option value="Roupas Femininas">Roupas Femininas</option>
+          <option value="Roupas Masculinas">Roupas Masculinas</option>
+          <option value="Acessórios">Acessórios</option>
+          <option value="Móveis">Móveis</option>
+          <option value="Utilidades">Utilidades</option>
+        </select>
 
-    <section id="listaBrechos">
-      <h2>Brechós cadastrados:</h2>
-      <ul id="brechoList"></ul>
+        <label>Cidade:</label>
+        <input type="text" name="cidade" placeholder="Digite a cidade" />
+
+        <label>Faixa de preço máxima (R$):</label>
+        <input type="number" name="preco_max" />
+
+        <label>Tipo de doação:</label>
+        <select name="remunerada">
+          <option value="">Todos</option>
+          <option value="sim">Remunerada</option>
+          <option value="nao">Não remunerada</option>
+          <option value="parcial">Depende do item</option>
+        </select>
+
+        <button type="submit">Aplicar Filtros</button>
+      </form>
+
+      <section id="listaBrechos">
+        <h3>Brechós cadastrados:</h3>
+        <ul id="brechoList"></ul>
+      </section>
     </section>
   </main>
+
+  <footer>
+    <p>🌱 Projeto para incentivar a economia circular, reduzir o descarte e apoiar comunidades locais.</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
