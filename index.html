@@ -151,40 +151,48 @@
 
     <!-- PESQUISA DE BRECHÓS -->
     <section id="pesquisa" class="tab-content">
-      <h2>Pesquisar Brechós</h2>
-      <form id="filterForm">
-        <label>Categoria:</label>
-        <select name="categoria">
-          <option value="">Todas</option>
-          <option value="Roupas Femininas">Roupas Femininas</option>
-          <option value="Roupas Masculinas">Roupas Masculinas</option>
-          <option value="Acessórios">Acessórios</option>
-          <option value="Móveis">Móveis</option>
-          <option value="Utilidades">Utilidades</option>
-        </select>
+  <h2>Pesquisar Brechós</h2>
+  <form id="filterForm">
+    <label>Categoria:</label>
+    <select name="categoria">
+      <option value="">Todas</option>
+      <option value="Roupas Femininas">Roupas Femininas</option>
+      <option value="Roupas Masculinas">Roupas Masculinas</option>
+      <option value="Acessórios">Acessórios</option>
+      <option value="Móveis">Móveis</option>
+      <option value="Utilidades">Utilidades</option>
+      <option value="Eletrônicos">Eletrônicos</option>
+    </select>
 
-        <label>Cidade:</label>
-        <input type="text" name="cidade" placeholder="Digite a cidade" />
+    <label>Bairro:</label>
+    <input type="text" name="bairro" placeholder="Digite o bairro" />
 
-        <label>Faixa de preço máxima (R$):</label>
-        <input type="number" name="preco_max" />
+    <label>Faixa de preço máxima (R$):</label>
+    <input type="number" name="preco_max" />
 
-        <label>Tipo de doação:</label>
-        <select name="remunerada">
-          <option value="">Todos</option>
-          <option value="sim">Remunerada</option>
-          <option value="nao">Não remunerada</option>
-          <option value="parcial">Depende do item</option>
-        </select>
+    <label>Tipo de doação:</label>
+    <select name="remunerada">
+      <option value="">Todos</option>
+      <option value="sim">Remunerada</option>
+      <option value="nao">Não remunerada</option>
+      <option value="parcial">Depende do item</option>
+    </select>
 
-        <button type="submit">Aplicar Filtros</button>
-      </form>
+    <label>Trabalho voluntário aceito?</label>
+    <select name="voluntario">
+      <option value="">Todos</option>
+      <option value="sim">Sim</option>
+      <option value="nao">Não</option>
+    </select>
 
-      <section id="listaBrechos">
-        <h3>Brechós cadastrados:</h3>
-        <ul id="brechoList"></ul>
-      </section>
-    </section>
+    <button type="submit">Aplicar Filtros</button>
+  </form>
+
+  <section id="listaBrechos">
+    <h3>Brechós cadastrados:</h3>
+    <ul id="brechoList"></ul>
+  </section>
+</section>
   </main>
 
   <footer>
